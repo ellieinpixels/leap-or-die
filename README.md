@@ -12,6 +12,7 @@ own project if something isn't working.
 ## Episodes
 
 - [`01-setup-first-level`](01-setup-first-level): Episode 01: Setup and First Level
+- [`02-player-movement`](02-player-movement): Episode 02: Player Movement
 
 ## Licence
 
