@@ -13,6 +13,7 @@ own project if something isn't working.
 
 - [`01-setup-first-level`](01-setup-first-level): Episode 01: Setup and First Level
 - [`02-player-movement`](02-player-movement): Episode 02: Player Movement
+- [`03-wall-jump`](03-wall-jump): Episode 03: Wall Slide and Wall Jump
 
 ## Licence
 

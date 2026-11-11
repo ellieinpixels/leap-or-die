@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b12os353ur00l"]
+
+[ext_resource type="Texture2D" uid="uid://dme88m0iae56i" path="res://assets/effects/dust.png" id="1_v1fbf"]
+[ext_resource type="Script" path="res://effects/one_shot_particles.gd" id="2_05oq8"]
+
+[sub_resource type="Curve" id="Curve_v1fbf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_05oq8"]
+curve = SubResource("Curve_v1fbf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_myj8v"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 80.0
+initial_velocity_min = 20.0
+initial_velocity_max = 45.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_05oq8")
+
+[node name="Dust" type="GPUParticles2D" unique_id=1230324160]
+emitting = false
+amount = 6
+texture = ExtResource("1_v1fbf")
+lifetime = 0.35000000000000003
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_myj8v")
+script = ExtResource("2_05oq8")
