@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cqnjbvg7qmvyk"]
+
+[ext_resource type="Texture2D" uid="uid://cbodouq1ynaim" path="res://assets/effects/blood_drop.png" id="1_edkwf"]
+[ext_resource type="Script" uid="uid://bq84robw1twrc" path="res://effects/one_shot_particles.gd" id="2_svhvv"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_edkwf"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 70.0
+initial_velocity_max = 180.0
+gravity = Vector3(0, 500, 0)
+scale_min = 0.59999996
+scale_max = 1.1999999
+
+[node name="BloodBurst" type="GPUParticles2D" unique_id=197426985]
+emitting = false
+amount = 32
+texture = ExtResource("1_edkwf")
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_edkwf")
+script = ExtResource("2_svhvv")

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cktaywoqjh87f"]
+
+[ext_resource type="Script" uid="uid://bmjf3amqxqdgs" path="res://hazards/saw.gd" id="1_4ifaf"]
+[ext_resource type="Texture2D" uid="uid://deq1g5066rlr" path="res://assets/hazards/saw.png" id="1_fefdb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ifaf"]
+radius = 16.0
+
+[node name="Saw" type="Area2D" unique_id=340697733 node_paths=PackedStringArray("splat_parent")]
+z_index = -1
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_4ifaf")
+splat_parent = NodePath("Blade")
+
+[node name="Blade" type="Node2D" parent="." unique_id=1034718386]
+
+[node name="Sprite2D" type="Sprite2D" parent="Blade" unique_id=339036411]
+texture = ExtResource("1_fefdb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=845104337]
+shape = SubResource("CircleShape2D_4ifaf")
