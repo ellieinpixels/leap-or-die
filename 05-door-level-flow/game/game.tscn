@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dngh6cwmfchej"]
+
+[ext_resource type="Script" uid="uid://doe0m54wmd8vq" path="res://game/game.gd" id="1_l1rk1"]
+[ext_resource type="Script" uid="uid://bn6jxyyfwx2lo" path="res://game/wipe.gd" id="2_vasa2"]
+
+[node name="Game" type="CanvasLayer" unique_id=1735689567]
+layer = 100
+script = ExtResource("1_l1rk1")
+
+[node name="Wipe" type="Control" parent="." unique_id=625639296]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_vasa2")

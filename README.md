@@ -15,6 +15,7 @@ own project if something isn't working.
 - [`02-player-movement`](02-player-movement): Episode 02: Player Movement
 - [`03-wall-jump`](03-wall-jump): Episode 03: Wall Slide and Wall Jump
 - [`04-death-respawn`](04-death-respawn): Episode 04: Death and Respawn
+- [`05-door-level-flow`](05-door-level-flow): Episode 05: The Door and Level Flow
 
 ## Licence
 

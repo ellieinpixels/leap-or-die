@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b4kf4u6f36uix"]
+
+[ext_resource type="Script" uid="uid://bjya1c3jnymkr" path="res://ui/hud.gd" id="1_rbyyf"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1640603522]
+script = ExtResource("1_rbyyf")
+
+[node name="Label" type="Label" parent="." unique_id=199096955]
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 81.0
+offset_bottom = 27.0
