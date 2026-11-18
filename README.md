@@ -16,6 +16,7 @@ own project if something isn't working.
 - [`03-wall-jump`](03-wall-jump): Episode 03: Wall Slide and Wall Jump
 - [`04-death-respawn`](04-death-respawn): Episode 04: Death and Respawn
 - [`05-door-level-flow`](05-door-level-flow): Episode 05: The Door and Level Flow
+- [`06-moving-hazards`](06-moving-hazards): Episode 06: Moving Hazards
 
 ## Licence
 
