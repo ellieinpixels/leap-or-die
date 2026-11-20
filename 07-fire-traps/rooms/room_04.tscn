@@ -1,0 +1,123 @@
+[gd_scene format=4 uid="uid://jawwo64sftgr"]
+
+[ext_resource type="Script" uid="uid://dlhhdchftqd2m" path="res://rooms/room.gd" id="1_imqgg"]
+[ext_resource type="TileSet" uid="uid://h8vu1cuad47w" path="res://level/tileset.tres" id="2_mbs2a"]
+[ext_resource type="Texture2D" uid="uid://brqvhyngp8vam" path="res://assets/bg_blue.png" id="3_w287u"]
+[ext_resource type="Texture2D" uid="uid://co0cpj18k7bdq" path="res://assets/start_flag.png" id="4_k017v"]
+[ext_resource type="PackedScene" uid="uid://ce0djcwr5e568" path="res://player/player.tscn" id="5_umnwk"]
+[ext_resource type="PackedScene" uid="uid://cktaywoqjh87f" path="res://hazards/saw.tscn" id="7_l1s7b"]
+[ext_resource type="Script" uid="uid://cte6wxgbi0lhh" path="res://hazards/hazard.gd" id="8_rnovt"]
+[ext_resource type="PackedScene" uid="uid://b4kf4u6f36uix" path="res://ui/hud.tscn" id="9_ehmog"]
+[ext_resource type="Script" uid="uid://idms0w2lfye7" path="res://hazards/path_mover.gd" id="9_imqgg"]
+[ext_resource type="PackedScene" uid="uid://bt6d6s2t3garm" path="res://objects/door.tscn" id="10_fmnvb"]
+[ext_resource type="Script" uid="uid://1gluxdqcp31t" path="res://hazards/track.gd" id="11_mbs2a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0v1st"]
+size = Vector2(600, 32)
+
+[sub_resource type="Curve2D" id="Curve2D_o451u"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 200, 96, 0, 0, 0, 0, 200, 208)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_mbs2a"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 360, 96, 0, 0, 0, 0, 360, 208)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_w287u"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 280, 96, 0, 0, 0, 0, 280, 208)
+}
+point_count = 2
+
+[node name="Room04" type="Node2D" unique_id=361781161]
+script = ExtResource("1_imqgg")
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=980921740]
+tile_map_data = PackedByteArray("AAAAAA4AAAAHAAAAAAABAA4AAAAHAAAAAAACAA4AAAAHAAAAAAADAA4AAAAHAAAAAAAEAA4AAAAHAAAAAAAFAA4AAAAHAAAAAAAGAA4AAAAHAAAAAAAHAA4AAAAIAAAAAAAYAA4AAAAGAAAAAAAZAA4AAAAHAAAAAAAaAA4AAAAHAAAAAAAbAA4AAAAHAAAAAAAcAA4AAAAHAAAAAAAdAA4AAAAHAAAAAAAAAA8AAAAHAAEAAAABAA8AAAAHAAEAAAACAA8AAAAHAAEAAAADAA8AAAAHAAEAAAAEAA8AAAAHAAEAAAAFAA8AAAAHAAEAAAAGAA8AAAAHAAEAAAAHAA8AAAAIAAEAAAAYAA8AAAAGAAEAAAAZAA8AAAAHAAEAAAAaAA8AAAAHAAEAAAAbAA8AAAAHAAEAAAAcAA8AAAAHAAEAAAAdAA8AAAAHAAEAAAAAABAAAAAHAAEAAAABABAAAAAHAAEAAAACABAAAAAHAAEAAAADABAAAAAHAAEAAAAEABAAAAAHAAEAAAAFABAAAAAHAAEAAAAGABAAAAAHAAEAAAAHABAAAAAIAAEAAAAYABAAAAAGAAEAAAAZABAAAAAHAAEAAAAaABAAAAAHAAEAAAAbABAAAAAHAAEAAAAcABAAAAAHAAEAAAAdABAAAAAHAAEAAAAJAAsAAAAGAAAAAAAKAAsAAAAIAAAAAAD//wAAAAAHAAEAAAD//wEAAAAHAAEAAAD//wIAAAAHAAEAAAD//wMAAAAHAAEAAAD//wQAAAAHAAEAAAD//wUAAAAHAAEAAAD//wYAAAAHAAEAAAD//wcAAAAHAAEAAAD//wgAAAAHAAEAAAD//wkAAAAHAAEAAAD//woAAAAHAAEAAAD//wsAAAAHAAEAAAD//wwAAAAHAAEAAAD//w0AAAAHAAEAAAAeAAAAAAAHAAEAAAAeAAEAAAAHAAEAAAAeAAIAAAAHAAEAAAAeAAMAAAAHAAEAAAAeAAQAAAAHAAEAAAAeAAUAAAAHAAEAAAAeAAYAAAAHAAEAAAAeAAcAAAAHAAEAAAAeAAgAAAAHAAEAAAAeAAkAAAAHAAEAAAAeAAoAAAAHAAEAAAAeAAsAAAAHAAEAAAAeAAwAAAAHAAEAAAAeAA0AAAAHAAEAAAAOAAsAAAAGAAAAAAATAAsAAAAGAAAAAAAPAAsAAAAIAAAAAAAUAAsAAAAIAAAAAAA=")
+tile_set = ExtResource("2_mbs2a")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=9066497]
+z_index = -10
+repeat_size = Vector2(64, 64)
+autoscroll = Vector2(-12, -8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=2022305260]
+z_index = -10
+texture_repeat = 2
+texture = ExtResource("3_w287u")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 544, 334)
+
+[node name="StartFlag" type="Sprite2D" parent="." unique_id=872023570]
+z_index = -1
+position = Vector2(32, 192)
+texture = ExtResource("4_k017v")
+
+[node name="Player" parent="." unique_id=179632702 instance=ExtResource("5_umnwk")]
+position = Vector2(40, 224)
+
+[node name="Pit" type="Area2D" parent="." unique_id=1687327186]
+position = Vector2(240, 300)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("8_rnovt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit" unique_id=14853039]
+shape = SubResource("RectangleShape2D_0v1st")
+
+[node name="HUD" parent="." unique_id=1480200450 instance=ExtResource("9_ehmog")]
+
+[node name="Door" parent="." unique_id=1974393566 instance=ExtResource("10_fmnvb")]
+position = Vector2(440, 200)
+
+[node name="SawTrack" type="Path2D" parent="." unique_id=1640385830]
+curve = SubResource("Curve2D_o451u")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="SawTrack" unique_id=645068337]
+position = Vector2(200, 96)
+rotation = 1.5707964
+script = ExtResource("9_imqgg")
+speed = 70.0
+
+[node name="Saw" parent="SawTrack/PathFollow2D" unique_id=438031760 instance=ExtResource("7_l1s7b")]
+
+[node name="Track" type="Node2D" parent="SawTrack" unique_id=1069444316]
+z_index = -2
+script = ExtResource("11_mbs2a")
+
+[node name="SawTrack3" type="Path2D" parent="." unique_id=663556162]
+curve = SubResource("Curve2D_mbs2a")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="SawTrack3" unique_id=1442687604]
+position = Vector2(360, 96)
+rotation = 1.5707964
+script = ExtResource("9_imqgg")
+speed = 70.0
+start_offset = 1.0
+
+[node name="Saw" parent="SawTrack3/PathFollow2D" unique_id=1510427550 instance=ExtResource("7_l1s7b")]
+
+[node name="Track" type="Node2D" parent="SawTrack3" unique_id=861441546]
+z_index = -2
+script = ExtResource("11_mbs2a")
+
+[node name="SawTrack2" type="Path2D" parent="." unique_id=533288869]
+curve = SubResource("Curve2D_w287u")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="SawTrack2" unique_id=302270544]
+position = Vector2(280, 96)
+rotation = 1.5707964
+script = ExtResource("9_imqgg")
+speed = 70.0
+start_offset = 0.5
+
+[node name="Saw" parent="SawTrack2/PathFollow2D" unique_id=449780260 instance=ExtResource("7_l1s7b")]
+
+[node name="Track" type="Node2D" parent="SawTrack2" unique_id=126727531]
+z_index = -2
+script = ExtResource("11_mbs2a")

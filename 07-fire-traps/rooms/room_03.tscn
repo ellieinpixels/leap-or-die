@@ -1,0 +1,132 @@
+[gd_scene format=4]
+
+[ext_resource type="Script" path="res://rooms/room.gd" id="attached_script"]
+
+[ext_resource type="TileSet" path="res://level/tileset.tres" id="1_m1xjo"]
+[ext_resource type="Texture2D" path="res://assets/bg_blue.png" id="2_tjap7"]
+[ext_resource type="Texture2D" path="res://assets/start_flag.png" id="3_jnrff"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="4_efjce"]
+[ext_resource type="PackedScene" path="res://hazards/spikes.tscn" id="5_q4j5a"]
+[ext_resource type="Script" path="res://hazards/hazard.gd" id="6_7o6c5"]
+[ext_resource type="PackedScene" path="res://objects/door.tscn" id="7_y131g"]
+[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="8_nuwkm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3xe3"]
+size = Vector2(600, 32)
+
+[node name="Room03" type="Node2D" unique_id=1213816076]
+script = ExtResource("attached_script")
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=1640593244]
+tile_map_data = PackedByteArray("AAAAAA4AAAAHAAEAAAABAA4AAAAHAAAAAAACAA4AAAAHAAAAAAADAA4AAAAHAAAAAAAEAA4AAAAHAAEAAAAFAA4AAAAHAAAAAAAGAA4AAAAHAAAAAAAHAA4AAAAHAAAAAAAIAA4AAAAHAAAAAAAJAA4AAAAHAAAAAAAKAA4AAAAHAAAAAAALAA4AAAAHAAAAAAAMAA4AAAAHAAAAAAAQAA4AAAAHAAAAAAARAA4AAAAHAAAAAAASAA4AAAAHAAAAAAATAA4AAAAHAAAAAAAUAA4AAAAHAAAAAAAVAA4AAAAHAAAAAAAWAA4AAAAHAAAAAAAXAA4AAAAHAAAAAAAYAA4AAAAHAAAAAAAZAA4AAAAHAAAAAAAaAA4AAAAHAAAAAAAbAA4AAAAHAAAAAAAcAA4AAAAHAAAAAAAdAA4AAAAHAAAAAAAAAA8AAAAHAAEAAAABAA8AAAAHAAEAAAACAA8AAAAHAAEAAAADAA8AAAAHAAEAAAAEAA8AAAAHAAEAAAAFAA8AAAAHAAEAAAAGAA8AAAAHAAEAAAAHAA8AAAAHAAEAAAAIAA8AAAAHAAEAAAAJAA8AAAAHAAEAAAAKAA8AAAAHAAEAAAALAA8AAAAHAAEAAAAMAA8AAAAHAAEAAAAQAA8AAAAHAAEAAAARAA8AAAAHAAEAAAASAA8AAAAHAAEAAAATAA8AAAAHAAEAAAAUAA8AAAAHAAEAAAAVAA8AAAAHAAEAAAAWAA8AAAAHAAEAAAAXAA8AAAAHAAEAAAAYAA8AAAAHAAEAAAAZAA8AAAAHAAEAAAAaAA8AAAAHAAEAAAAbAA8AAAAHAAEAAAAcAA8AAAAHAAEAAAAdAA8AAAAHAAEAAAAAABAAAAAHAAEAAAABABAAAAAHAAEAAAACABAAAAAHAAEAAAADABAAAAAHAAEAAAAEABAAAAAHAAEAAAAFABAAAAAHAAEAAAAGABAAAAAHAAEAAAAHABAAAAAHAAEAAAAIABAAAAAHAAEAAAAJABAAAAAHAAEAAAAKABAAAAAHAAEAAAALABAAAAAHAAEAAAAMABAAAAAHAAEAAAAQABAAAAAHAAEAAAARABAAAAAHAAEAAAASABAAAAAHAAEAAAATABAAAAAHAAEAAAAUABAAAAAHAAEAAAAVABAAAAAHAAEAAAAWABAAAAAHAAEAAAAXABAAAAAHAAEAAAAYABAAAAAHAAEAAAAZABAAAAAHAAEAAAAaABAAAAAHAAEAAAAbABAAAAAHAAEAAAAcABAAAAAHAAEAAAAdABAAAAAHAAEAAAAHAAoA//////////8IAAoA//////////8JAAoA//////////8KAAoA//////////8HAAsA//////////8IAAsA//////////8JAAsA//////////8KAAsA/////////////wAAAAAGAAEAAAAeAAAAAAAHAAEAAAD//wEAAAAGAAEAAAAeAAEAAAAHAAEAAAD//wIAAAAGAAEAAAAeAAIAAAAHAAEAAAD//wMAAAAGAAEAAAAeAAMAAAAHAAEAAAD//wQAAAAGAAEAAAAeAAQAAAAHAAEAAAD//wUAAAAGAAEAAAAeAAUAAAAHAAEAAAD//wYAAAAGAAEAAAAeAAYAAAAIAAEAAAD//wcAAAAGAAEAAAAeAAcAAAAIAAEAAAD//wgAAAAGAAEAAAAeAAgAAAAHAAEAAAD//wkAAAAGAAEAAAAeAAkAAAAHAAEAAAD//woAAAAGAAEAAAAeAAoAAAAHAAEAAAD//wsAAAAGAAEAAAAeAAsAAAAHAAEAAAD//wwAAAAGAAEAAAAeAAwAAAAHAAEAAAD//w0AAAAGAAEAAAAeAA0AAAAHAAEAAAATAAoA//////////8UAAoA//////////8VAAoA//////////8WAAoA//////////8YAAcA//////////8ZAAcAAAAGAAIAAAAaAAcAAAAHAAIAAAAbAAcAAAAHAAIAAAAaAAUA//////////8aAAYAAAAHAAAAAAAaAAgA//////////8aAAkA//////////8aAAoA//////////8aAAsA//////////8aAAwA//////////8aAA0A//////////8aAAQA//////////8AAAAAAAAIAAAAAAAAAAEAAAAIAAEAAAAAAAIAAAAIAAEAAAAAAAMAAAAIAAEAAAAAAAQAAAAIAAEAAAAEAAQAAAAGAAAAAAAFAAQAAAAHAAAAAAAGAAQAAAAHAAAAAAAHAAQAAAAHAAAAAAAIAAQAAAAIAAAAAAATAAQAAAAGAAAAAAAUAAQAAAAHAAAAAAAVAAQAAAAHAAAAAAAWAAQAAAAIAAAAAAAAAAUAAAAIAAEAAAAEAAUAAAAHAAEAAAAAAAYAAAAIAAEAAAAEAAYAAAAHAAEAAAAMAAYAAAAGAAAAAAANAAYAAAAHAAAAAAAOAAYAAAAHAAAAAAAPAAYAAAAIAAAAAAAZAAYAAAAGAAAAAAAbAAYAAAAHAAAAAAAcAAYAAAAHAAAAAAAdAAYAAAAHAAAAAAAAAAcAAAAIAAEAAAAEAAcAAAAHAAEAAAAcAAcAAAAHAAIAAAAdAAcAAAAHAAIAAAAAAAgAAAAIAAEAAAAEAAgAAAAHAAEAAAAAAAkAAAAIAAEAAAAEAAkAAAAHAAEAAAAAAAoAAAAIAAEAAAAEAAoAAAAHAAEAAAAAAAsAAAAIAAEAAAAEAAsAAAAHAAEAAAAAAAwAAAAIAAEAAAAEAAwAAAAHAAEAAAAAAA0AAAAIAAEAAAAEAA0AAAAHAAEAAAANAA4AAAAHAAAAAAAOAA4AAAAHAAAAAAAPAA4AAAAHAAAAAAANAA8AAAAHAAEAAAAOAA8AAAAHAAEAAAAPAA8AAAAHAAEAAAANABAAAAAHAAEAAAAOABAAAAAHAAEAAAAPABAAAAAHAAEAAAD///r/AAAHAAAAAAAeAPr/AAAHAAAAAAD///v/AAAHAAEAAAAeAPv/AAAHAAEAAAD///z/AAAHAAEAAAAeAPz/AAAHAAEAAAD///3/AAAHAAEAAAAeAP3/AAAHAAEAAAD///7/AAAHAAEAAAAeAP7/AAAHAAEAAAD/////AAAHAAEAAAAeAP//AAAHAAEAAAD//w4AAAAGAAEAAAAeAA4AAAAIAAEAAAD//w8AAAAGAAEAAAAeAA8AAAAIAAEAAAD//xAAAAAGAAEAAAAeABAAAAAIAAEAAAA=")
+tile_set = ExtResource("1_m1xjo")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1604445658]
+z_index = -10
+repeat_size = Vector2(64, 64)
+autoscroll = Vector2(-12, -8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1528863776]
+z_index = -10
+texture_repeat = 2
+texture = ExtResource("2_tjap7")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 544, 334)
+
+[node name="StartFlag" type="Sprite2D" parent="." unique_id=214238278]
+z_index = -1
+position = Vector2(44, 192)
+texture = ExtResource("3_jnrff")
+
+[node name="Player" parent="." unique_id=733001990 instance=ExtResource("4_efjce")]
+position = Vector2(52, 224)
+
+[node name="Spikes" parent="." unique_id=1049033072 instance=ExtResource("5_q4j5a")]
+position = Vector2(88, 216)
+
+[node name="Spikes2" parent="." unique_id=166838194 instance=ExtResource("5_q4j5a")]
+position = Vector2(104, 216)
+
+[node name="Spikes3" parent="." unique_id=628417293 instance=ExtResource("5_q4j5a")]
+position = Vector2(120, 216)
+
+[node name="Spikes4" parent="." unique_id=1425297525 instance=ExtResource("5_q4j5a")]
+position = Vector2(136, 216)
+
+[node name="Spikes5" parent="." unique_id=630964689 instance=ExtResource("5_q4j5a")]
+position = Vector2(152, 216)
+
+[node name="Spikes6" parent="." unique_id=1733924575 instance=ExtResource("5_q4j5a")]
+position = Vector2(168, 216)
+
+[node name="Spikes7" parent="." unique_id=1324386790 instance=ExtResource("5_q4j5a")]
+position = Vector2(184, 216)
+
+[node name="Spikes8" parent="." unique_id=91985307 instance=ExtResource("5_q4j5a")]
+position = Vector2(200, 216)
+
+[node name="Spikes9" parent="." unique_id=801123005 instance=ExtResource("5_q4j5a")]
+position = Vector2(216, 216)
+
+[node name="Spikes10" parent="." unique_id=1608226573 instance=ExtResource("5_q4j5a")]
+position = Vector2(232, 216)
+
+[node name="Spikes11" parent="." unique_id=1359721031 instance=ExtResource("5_q4j5a")]
+position = Vector2(248, 216)
+
+[node name="Spikes12" parent="." unique_id=386970318 instance=ExtResource("5_q4j5a")]
+position = Vector2(264, 216)
+
+[node name="Spikes13" parent="." unique_id=714803419 instance=ExtResource("5_q4j5a")]
+position = Vector2(280, 216)
+
+[node name="Spikes14" parent="." unique_id=1068167538 instance=ExtResource("5_q4j5a")]
+position = Vector2(296, 216)
+
+[node name="Spikes15" parent="." unique_id=2018821835 instance=ExtResource("5_q4j5a")]
+position = Vector2(312, 216)
+
+[node name="Spikes16" parent="." unique_id=1707147039 instance=ExtResource("5_q4j5a")]
+position = Vector2(328, 216)
+
+[node name="Spikes17" parent="." unique_id=2031473877 instance=ExtResource("5_q4j5a")]
+position = Vector2(344, 216)
+
+[node name="Spikes18" parent="." unique_id=154020376 instance=ExtResource("5_q4j5a")]
+position = Vector2(360, 216)
+
+[node name="Spikes19" parent="." unique_id=707713845 instance=ExtResource("5_q4j5a")]
+position = Vector2(376, 216)
+
+[node name="Spikes20" parent="." unique_id=1416064382 instance=ExtResource("5_q4j5a")]
+position = Vector2(392, 216)
+
+[node name="Spikes21" parent="." unique_id=1873497927 instance=ExtResource("5_q4j5a")]
+position = Vector2(408, 216)
+
+[node name="Spikes22" parent="." unique_id=1729458977 instance=ExtResource("5_q4j5a")]
+position = Vector2(424, 216)
+
+[node name="Spikes23" parent="." unique_id=1879505806 instance=ExtResource("5_q4j5a")]
+position = Vector2(440, 216)
+
+[node name="Spikes24" parent="." unique_id=917664905 instance=ExtResource("5_q4j5a")]
+position = Vector2(456, 216)
+
+[node name="Spikes25" parent="." unique_id=568337888 instance=ExtResource("5_q4j5a")]
+position = Vector2(472, 216)
+
+[node name="Pit" type="Area2D" parent="." unique_id=1796127161]
+position = Vector2(240, 300)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("6_7o6c5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit" unique_id=1239097549]
+shape = SubResource("RectangleShape2D_t3xe3")
+
+[node name="Door" parent="." unique_id=1923272855 instance=ExtResource("7_y131g")]
+position = Vector2(440, 72)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1941169439 instance=ExtResource("8_nuwkm")]
