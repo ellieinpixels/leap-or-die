@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bu75v33ws87g3"]
+
+[ext_resource type="Script" uid="uid://cte6wxgbi0lhh" path="res://hazards/hazard.gd" id="1_i3swx"]
+[ext_resource type="Texture2D" uid="uid://cluorou57y3wl" path="res://assets/hazards/spiked_ball.png" id="2_i3swx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qh8io"]
+radius = 11.0
+
+[node name="SpikedBall" type="Area2D" unique_id=1810083717]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_i3swx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1287016792]
+texture = ExtResource("2_i3swx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=77744257]
+shape = SubResource("CircleShape2D_qh8io")

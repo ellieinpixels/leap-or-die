@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bmk5direouuwd"]
+
+[ext_resource type="Texture2D" uid="uid://bvjhvmghu0xla" path="res://assets/hazards/ball_chain.png" id="1_fr4u3"]
+[ext_resource type="Script" uid="uid://sxjymfk3qa43" path="res://hazards/swing.gd" id="1_sdggf"]
+[ext_resource type="PackedScene" uid="uid://bu75v33ws87g3" path="res://hazards/spiked_ball.tscn" id="2_sdggf"]
+
+[node name="SwingingBall" type="Node2D" unique_id=1005597919]
+script = ExtResource("1_sdggf")
+
+[node name="Pivot" type="Sprite2D" parent="." unique_id=385648801]
+texture = ExtResource("1_fr4u3")
+
+[node name="Arm" type="Node2D" parent="." unique_id=1920402864]
+
+[node name="Links" type="Node2D" parent="Arm" unique_id=1515833938]
+
+[node name="Ball" parent="Arm" unique_id=1810083717 instance=ExtResource("2_sdggf")]
+position = Vector2(0, 96)

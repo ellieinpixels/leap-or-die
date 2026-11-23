@@ -18,6 +18,7 @@ own project if something isn't working.
 - [`05-door-level-flow`](05-door-level-flow): Episode 05: The Door and Level Flow
 - [`06-moving-hazards`](06-moving-hazards): Episode 06: Moving Hazards
 - [`07-fire-traps`](07-fire-traps): Episode 07: Fire Traps
+- [`08-spike-heads`](08-spike-heads): Episode 08: Spike Heads
 
 ## Licence
 
