@@ -1,0 +1,128 @@
+[gd_scene format=4]
+
+[ext_resource type="Script" path="res://rooms/room.gd" id="attached_script"]
+
+[ext_resource type="TileSet" path="res://level/tileset.tres" id="1_ibf3x"]
+[ext_resource type="Texture2D" path="res://assets/bg_blue.png" id="2_sj3sy"]
+[ext_resource type="Texture2D" path="res://assets/start_flag.png" id="3_dwsm3"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="4_o34ee"]
+[ext_resource type="Script" path="res://hazards/hazard.gd" id="5_8orna"]
+[ext_resource type="PackedScene" path="res://objects/door.tscn" id="6_fi3es"]
+[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="7_8a4nh"]
+[ext_resource type="PackedScene" path="res://hazards/fire_trap.tscn" id="8_eoqsa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6qus"]
+size = Vector2(600, 32)
+
+[node name="Room06" type="Node2D" unique_id=1213816076]
+script = ExtResource("attached_script")
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=1640593244]
+tile_map_data = PackedByteArray("AAD///r/AAAHAAAAAAAeAPr/AAAHAAAAAAD///v/AAAHAAEAAAAeAPv/AAAHAAEAAAD///z/AAAHAAEAAAAeAPz/AAAHAAEAAAD///3/AAAHAAEAAAAeAP3/AAAHAAEAAAD///7/AAAHAAEAAAAeAP7/AAAHAAEAAAD/////AAAHAAEAAAAeAP//AAAHAAEAAAD//wAAAAAHAAEAAAAeAAAAAAAHAAEAAAD//wEAAAAHAAEAAAAeAAEAAAAHAAEAAAD//wIAAAAHAAEAAAAeAAIAAAAHAAEAAAD//wMAAAAHAAEAAAAeAAMAAAAHAAEAAAD//wQAAAAHAAEAAAAeAAQAAAAHAAEAAAD//wUAAAAHAAEAAAAeAAUAAAAHAAEAAAD//wYAAAAHAAEAAAAeAAYAAAAHAAEAAAD//wcAAAAHAAEAAAAeAAcAAAAHAAEAAAD//wgAAAAHAAEAAAAeAAgAAAAHAAEAAAD//wkAAAAHAAEAAAAeAAkAAAAHAAEAAAD//woAAAAHAAEAAAAeAAoAAAAHAAEAAAD//wsAAAAHAAEAAAAeAAsAAAAHAAEAAAD//wwAAAAHAAEAAAAeAAwAAAAHAAEAAAD//w0AAAAGAAEAAAAAAA0AAAAHAAAAAAABAA0AAAAHAAAAAAACAA0AAAAHAAAAAAADAA0AAAAHAAAAAAAEAA0AAAAHAAAAAAAFAA0AAAAIAAAAAAAYAA0AAAAGAAAAAAAZAA0AAAAHAAAAAAAaAA0AAAAHAAAAAAAbAA0AAAAHAAAAAAAcAA0AAAAHAAAAAAAdAA0AAAAHAAAAAAAeAA0AAAAIAAEAAAD//w4AAAAGAAEAAAAAAA4AAAAHAAEAAAABAA4AAAAHAAEAAAACAA4AAAAHAAEAAAADAA4AAAAHAAEAAAAEAA4AAAAHAAEAAAAFAA4AAAAIAAEAAAAYAA4AAAAGAAEAAAAZAA4AAAAHAAEAAAAaAA4AAAAHAAEAAAAbAA4AAAAHAAEAAAAcAA4AAAAHAAEAAAAdAA4AAAAHAAEAAAAeAA4AAAAIAAEAAAD//w8AAAAGAAEAAAAAAA8AAAAHAAEAAAABAA8AAAAHAAEAAAACAA8AAAAHAAEAAAADAA8AAAAHAAEAAAAEAA8AAAAHAAEAAAAFAA8AAAAIAAEAAAAYAA8AAAAGAAEAAAAZAA8AAAAHAAEAAAAaAA8AAAAHAAEAAAAbAA8AAAAHAAEAAAAcAA8AAAAHAAEAAAAdAA8AAAAHAAEAAAAeAA8AAAAIAAEAAAD//xAAAAAGAAEAAAAAABAAAAAHAAEAAAABABAAAAAHAAEAAAACABAAAAAHAAEAAAADABAAAAAHAAEAAAAEABAAAAAHAAEAAAAFABAAAAAIAAEAAAAYABAAAAAGAAEAAAAZABAAAAAHAAEAAAAaABAAAAAHAAEAAAAbABAAAAAHAAEAAAAcABAAAAAHAAEAAAAdABAAAAAHAAEAAAAeABAAAAAIAAEAAAA=")
+tile_set = ExtResource("1_ibf3x")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1604445658]
+z_index = -10
+repeat_size = Vector2(64, 64)
+autoscroll = Vector2(-12, -8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1528863776]
+z_index = -10
+texture_repeat = 2
+texture = ExtResource("2_sj3sy")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 544, 334)
+
+[node name="StartFlag" type="Sprite2D" parent="." unique_id=214238278]
+z_index = -1
+position = Vector2(32, 176)
+texture = ExtResource("3_dwsm3")
+
+[node name="Player" parent="." unique_id=733001990 instance=ExtResource("4_o34ee")]
+position = Vector2(40, 208)
+
+[node name="Pit" type="Area2D" parent="." unique_id=225544408]
+position = Vector2(240, 300)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("5_8orna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit" unique_id=1441109040]
+shape = SubResource("RectangleShape2D_k6qus")
+
+[node name="Door" parent="." unique_id=1923272855 instance=ExtResource("6_fi3es")]
+position = Vector2(440, 184)
+
+[node name="HUD" parent="." unique_id=1941169439 instance=ExtResource("7_8a4nh")]
+
+[node name="FireTrap" parent="." unique_id=1658346225 instance=ExtResource("8_eoqsa")]
+position = Vector2(104, 208)
+
+[node name="FireTrap2" parent="." unique_id=1365495663 instance=ExtResource("8_eoqsa")]
+position = Vector2(120, 208)
+start_delay = 0.12
+
+[node name="FireTrap3" parent="." unique_id=1397756222 instance=ExtResource("8_eoqsa")]
+position = Vector2(136, 208)
+start_delay = 0.24
+
+[node name="FireTrap4" parent="." unique_id=1656902722 instance=ExtResource("8_eoqsa")]
+position = Vector2(152, 208)
+start_delay = 0.36
+
+[node name="FireTrap5" parent="." unique_id=2056520312 instance=ExtResource("8_eoqsa")]
+position = Vector2(168, 208)
+start_delay = 0.48
+
+[node name="FireTrap6" parent="." unique_id=130262282 instance=ExtResource("8_eoqsa")]
+position = Vector2(184, 208)
+start_delay = 0.6
+
+[node name="FireTrap7" parent="." unique_id=175282508 instance=ExtResource("8_eoqsa")]
+position = Vector2(200, 208)
+start_delay = 0.72
+
+[node name="FireTrap8" parent="." unique_id=1547710279 instance=ExtResource("8_eoqsa")]
+position = Vector2(216, 208)
+start_delay = 0.84
+
+[node name="FireTrap9" parent="." unique_id=1918174162 instance=ExtResource("8_eoqsa")]
+position = Vector2(232, 208)
+start_delay = 0.96
+
+[node name="FireTrap10" parent="." unique_id=1712162556 instance=ExtResource("8_eoqsa")]
+position = Vector2(248, 208)
+start_delay = 1.08
+
+[node name="FireTrap11" parent="." unique_id=1771968844 instance=ExtResource("8_eoqsa")]
+position = Vector2(264, 208)
+start_delay = 1.2
+
+[node name="FireTrap12" parent="." unique_id=115958296 instance=ExtResource("8_eoqsa")]
+position = Vector2(280, 208)
+start_delay = 1.3199999999999998
+
+[node name="FireTrap13" parent="." unique_id=2073520914 instance=ExtResource("8_eoqsa")]
+position = Vector2(296, 208)
+start_delay = 1.44
+
+[node name="FireTrap14" parent="." unique_id=877001184 instance=ExtResource("8_eoqsa")]
+position = Vector2(312, 208)
+start_delay = 1.56
+
+[node name="FireTrap15" parent="." unique_id=48946039 instance=ExtResource("8_eoqsa")]
+position = Vector2(328, 208)
+start_delay = 1.68
+
+[node name="FireTrap16" parent="." unique_id=29951096 instance=ExtResource("8_eoqsa")]
+position = Vector2(344, 208)
+start_delay = 1.7999999999999998
+
+[node name="FireTrap17" parent="." unique_id=1177692924 instance=ExtResource("8_eoqsa")]
+position = Vector2(360, 208)
+start_delay = 1.92
+
+[node name="FireTrap18" parent="." unique_id=1315631565 instance=ExtResource("8_eoqsa")]
+position = Vector2(376, 208)
+start_delay = 2.04
