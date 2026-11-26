@@ -20,6 +20,7 @@ own project if something isn't working.
 - [`07-fire-traps`](07-fire-traps): Episode 07: Fire Traps
 - [`08-spike-heads`](08-spike-heads): Episode 08: Crushing Spike Traps
 - [`09-moving-platforms`](09-moving-platforms): Episode 09: Moving Platforms
+- [`10-falling-platforms`](10-falling-platforms): Episode 10: Falling Platforms
 
 ## Licence
 

@@ -1,0 +1,72 @@
+[gd_scene format=4]
+
+[ext_resource type="Script" path="res://rooms/room.gd" id="attached_script"]
+
+[ext_resource type="TileSet" path="res://level/tileset.tres" id="1_2h0jq"]
+[ext_resource type="Texture2D" path="res://assets/bg_blue.png" id="2_5krm7"]
+[ext_resource type="Texture2D" path="res://assets/start_flag.png" id="3_pd7bt"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="4_3ta0i"]
+[ext_resource type="Script" path="res://hazards/hazard.gd" id="5_5c0fa"]
+[ext_resource type="PackedScene" path="res://objects/door.tscn" id="6_bb13p"]
+[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="7_r1uyo"]
+[ext_resource type="PackedScene" path="res://objects/falling_platform.tscn" id="8_qe78d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6qus"]
+size = Vector2(600, 32)
+
+[node name="Room09" type="Node2D" unique_id=1213816076]
+script = ExtResource("attached_script")
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=1640593244]
+tile_map_data = PackedByteArray("AAD///r/AAAHAAAAAAAeAPr/AAAHAAAAAAD///v/AAAHAAEAAAAeAPv/AAAHAAEAAAD///z/AAAHAAEAAAAeAPz/AAAHAAEAAAD///3/AAAHAAEAAAAeAP3/AAAHAAEAAAD///7/AAAHAAEAAAAeAP7/AAAHAAEAAAD/////AAAHAAEAAAAeAP//AAAHAAEAAAD//wAAAAAHAAEAAAAeAAAAAAAHAAEAAAD//wEAAAAHAAEAAAAeAAEAAAAHAAEAAAD//wIAAAAHAAEAAAAeAAIAAAAHAAEAAAD//wMAAAAHAAEAAAAeAAMAAAAHAAEAAAD//wQAAAAHAAEAAAAeAAQAAAAHAAEAAAD//wUAAAAHAAEAAAAeAAUAAAAHAAEAAAD//wYAAAAHAAEAAAAYAAYA//////////8ZAAYA//////////8aAAYA//////////8eAAYAAAAHAAEAAAD//wcAAAAHAAEAAAAaAAcA//////////8eAAcAAAAHAAEAAAD//wgAAAAHAAEAAAAaAAgA//////////8eAAgAAAAHAAEAAAD//wkAAAAHAAEAAAAaAAkA//////////8eAAkAAAAHAAEAAAD//woAAAAHAAEAAAAHAAoA//////////8IAAoA//////////8JAAoA//////////8KAAoA//////////8TAAoA//////////8UAAoA//////////8VAAoA//////////8WAAoA//////////8aAAoA//////////8eAAoAAAAHAAEAAAD//wsAAAAHAAEAAAAHAAsA//////////8IAAsA//////////8JAAsA//////////8KAAsA//////////8aAAsA//////////8eAAsAAAAHAAEAAAD//wwAAAAHAAEAAAAaAAwA//////////8eAAwAAAAHAAEAAAD//w0AAAAGAAEAAAAaAA0AAAAGAAAAAAAeAA0AAAAIAAEAAAD//w4AAAAGAAEAAAAAAA4AAAAHAAEAAAABAA4AAAAHAAEAAAACAA4AAAAHAAEAAAADAA4AAAAIAAEAAAAEAA4A//////////8FAA4A//////////8GAA4A//////////8HAA4A//////////8IAA4A//////////8JAA4A//////////8KAA4A//////////8LAA4A//////////8MAA4A//////////8QAA4A//////////8RAA4A//////////8SAA4A//////////8TAA4A//////////8UAA4A//////////8VAA4A//////////8WAA4A//////////8XAA4A//////////8YAA4A//////////8ZAA4A//////////8aAA4AAAAGAAEAAAAbAA4AAAAHAAEAAAAcAA4AAAAHAAEAAAAdAA4AAAAHAAEAAAAeAA4AAAAIAAEAAAD//w8AAAAGAAEAAAAAAA8AAAAHAAEAAAABAA8AAAAHAAEAAAACAA8AAAAHAAEAAAADAA8AAAAIAAEAAAAEAA8A//////////8FAA8A//////////8GAA8A//////////8HAA8A//////////8IAA8A//////////8JAA8A//////////8KAA8A//////////8LAA8A//////////8MAA8A//////////8QAA8A//////////8RAA8A//////////8SAA8A//////////8TAA8A//////////8UAA8A//////////8VAA8A//////////8WAA8A//////////8XAA8A//////////8YAA8A//////////8ZAA8A//////////8aAA8AAAAGAAEAAAAbAA8AAAAHAAEAAAAcAA8AAAAHAAEAAAAdAA8AAAAHAAEAAAAeAA8AAAAIAAEAAAD//xAAAAAGAAEAAAAAABAAAAAHAAEAAAABABAAAAAHAAEAAAACABAAAAAHAAEAAAADABAAAAAIAAEAAAAEABAA//////////8FABAA//////////8GABAA//////////8HABAA//////////8IABAA//////////8JABAA//////////8KABAA//////////8LABAA//////////8MABAA//////////8QABAA//////////8RABAA//////////8SABAA//////////8TABAA//////////8UABAA//////////8VABAA//////////8WABAA//////////8XABAA//////////8YABAA//////////8ZABAA//////////8aABAAAAAGAAEAAAAbABAAAAAHAAEAAAAcABAAAAAHAAEAAAAdABAAAAAHAAEAAAAeABAAAAAIAAEAAAAAAA0AAAAHAAAAAAABAA0AAAAHAAAAAAACAA0AAAAHAAAAAAADAA0AAAAIAAAAAAAbAA0AAAAHAAAAAAAcAA0AAAAHAAAAAAAdAA0AAAAHAAAAAAA=")
+tile_set = ExtResource("1_2h0jq")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1604445658]
+z_index = -10
+repeat_size = Vector2(64, 64)
+autoscroll = Vector2(-12, -8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1528863776]
+z_index = -10
+texture_repeat = 2
+texture = ExtResource("2_5krm7")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 544, 334)
+
+[node name="StartFlag" type="Sprite2D" parent="." unique_id=214238278]
+z_index = -1
+position = Vector2(24, 176)
+texture = ExtResource("3_pd7bt")
+
+[node name="Player" parent="." unique_id=733001990 instance=ExtResource("4_3ta0i")]
+position = Vector2(32, 208)
+
+[node name="Pit" type="Area2D" parent="." unique_id=225544408]
+position = Vector2(240, 300)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("5_5c0fa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit" unique_id=1441109040]
+shape = SubResource("RectangleShape2D_k6qus")
+
+[node name="Door" parent="." unique_id=1923272855 instance=ExtResource("6_bb13p")]
+position = Vector2(448, 184)
+
+[node name="HUD" parent="." unique_id=1941169439 instance=ExtResource("7_r1uyo")]
+
+[node name="FallingPlatform" parent="." unique_id=806068769 instance=ExtResource("8_qe78d")]
+position = Vector2(112, 192)
+
+[node name="FallingPlatform2" parent="." unique_id=1686671348 instance=ExtResource("8_qe78d")]
+position = Vector2(176, 172)
+
+[node name="FallingPlatform3" parent="." unique_id=1566367003 instance=ExtResource("8_qe78d")]
+position = Vector2(240, 152)
+
+[node name="FallingPlatform4" parent="." unique_id=805595200 instance=ExtResource("8_qe78d")]
+position = Vector2(304, 172)
+
+[node name="FallingPlatform5" parent="." unique_id=812640640 instance=ExtResource("8_qe78d")]
+position = Vector2(368, 192)

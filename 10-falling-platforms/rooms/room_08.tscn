@@ -1,0 +1,99 @@
+[gd_scene format=4 uid="uid://bsc01eiijy5wo"]
+
+[ext_resource type="TileSet" uid="uid://h8vu1cuad47w" path="res://level/tileset.tres" id="1_ibf3x"]
+[ext_resource type="Texture2D" uid="uid://brqvhyngp8vam" path="res://assets/bg_blue.png" id="2_sj3sy"]
+[ext_resource type="Texture2D" uid="uid://co0cpj18k7bdq" path="res://assets/start_flag.png" id="3_dwsm3"]
+[ext_resource type="PackedScene" uid="uid://ce0djcwr5e568" path="res://player/player.tscn" id="4_o34ee"]
+[ext_resource type="Script" uid="uid://cte6wxgbi0lhh" path="res://hazards/hazard.gd" id="5_8orna"]
+[ext_resource type="PackedScene" uid="uid://bt6d6s2t3garm" path="res://objects/door.tscn" id="6_fi3es"]
+[ext_resource type="PackedScene" uid="uid://b4kf4u6f36uix" path="res://ui/hud.tscn" id="7_8a4nh"]
+[ext_resource type="Script" uid="uid://1gluxdqcp31t" path="res://hazards/track.gd" id="9_ixsuu"]
+[ext_resource type="Script" uid="uid://idms0w2lfye7" path="res://hazards/path_mover.gd" id="10_q15dk"]
+[ext_resource type="PackedScene" uid="uid://cdlm78aw5q6qc" path="res://objects/moving_platform.tscn" id="11_phu7o"]
+[ext_resource type="Script" uid="uid://dlhhdchftqd2m" path="res://rooms/room.gd" id="attached_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6qus"]
+size = Vector2(600, 32)
+
+[sub_resource type="Curve2D" id="Curve2D_x8vkr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 104, 184, 0, 0, 0, 0, 216, 184)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ixsuu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 264, 168, 0, 0, 0, 0, 376, 168)
+}
+point_count = 2
+
+[node name="Room08" type="Node2D" unique_id=1213816076]
+script = ExtResource("attached_script")
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=1640593244]
+tile_map_data = PackedByteArray("AAD///r/AAAHAAAAAAAeAPr/AAAHAAAAAAD///v/AAAHAAEAAAAeAPv/AAAHAAEAAAD///z/AAAHAAEAAAAeAPz/AAAHAAEAAAD///3/AAAHAAEAAAAeAP3/AAAHAAEAAAD///7/AAAHAAEAAAAeAP7/AAAHAAEAAAD/////AAAHAAEAAAAeAP//AAAHAAEAAAD//wAAAAAHAAEAAAAeAAAAAAAHAAEAAAD//wEAAAAHAAEAAAAeAAEAAAAHAAEAAAD//wIAAAAHAAEAAAAeAAIAAAAHAAEAAAD//wMAAAAHAAEAAAAeAAMAAAAHAAEAAAD//wQAAAAHAAEAAAAeAAQAAAAHAAEAAAD//wUAAAAHAAEAAAAeAAUAAAAHAAEAAAD//wYAAAAHAAEAAAAeAAYAAAAHAAEAAAD//wcAAAAHAAEAAAAeAAcAAAAHAAEAAAD//wgAAAAHAAEAAAAeAAgAAAAHAAEAAAD//wkAAAAHAAEAAAAeAAkAAAAHAAEAAAD//woAAAAHAAEAAAAeAAoAAAAHAAEAAAD//wsAAAAHAAEAAAAeAAsAAAAHAAEAAAD//wwAAAAHAAEAAAAeAAwAAAAHAAEAAAD//w0AAAAGAAEAAAAAAA0AAAAHAAAAAAABAA0AAAAHAAAAAAACAA0AAAAHAAAAAAADAA0AAAAHAAAAAAAEAA0AAAAHAAAAAAAFAA0AAAAIAAAAAAAYAA0AAAAGAAAAAAAZAA0AAAAHAAAAAAAaAA0AAAAHAAAAAAAbAA0AAAAHAAAAAAAcAA0AAAAHAAAAAAAdAA0AAAAHAAAAAAAeAA0AAAAIAAEAAAD//w4AAAAGAAEAAAAAAA4AAAAHAAEAAAABAA4AAAAHAAEAAAACAA4AAAAHAAEAAAADAA4AAAAHAAEAAAAEAA4AAAAHAAEAAAAFAA4AAAAIAAEAAAAYAA4AAAAGAAEAAAAZAA4AAAAHAAEAAAAaAA4AAAAHAAEAAAAbAA4AAAAHAAEAAAAcAA4AAAAHAAEAAAAdAA4AAAAHAAEAAAAeAA4AAAAIAAEAAAD//w8AAAAGAAEAAAAAAA8AAAAHAAEAAAABAA8AAAAHAAEAAAACAA8AAAAHAAEAAAADAA8AAAAHAAEAAAAEAA8AAAAHAAEAAAAFAA8AAAAIAAEAAAAYAA8AAAAGAAEAAAAZAA8AAAAHAAEAAAAaAA8AAAAHAAEAAAAbAA8AAAAHAAEAAAAcAA8AAAAHAAEAAAAdAA8AAAAHAAEAAAAeAA8AAAAIAAEAAAD//xAAAAAGAAEAAAAAABAAAAAHAAEAAAABABAAAAAHAAEAAAACABAAAAAHAAEAAAADABAAAAAHAAEAAAAEABAAAAAHAAEAAAAFABAAAAAIAAEAAAAYABAAAAAGAAEAAAAZABAAAAAHAAEAAAAaABAAAAAHAAEAAAAbABAAAAAHAAEAAAAcABAAAAAHAAEAAAAdABAAAAAHAAEAAAAeABAAAAAIAAEAAAA=")
+tile_set = ExtResource("1_ibf3x")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1604445658]
+z_index = -10
+repeat_size = Vector2(64, 64)
+autoscroll = Vector2(-12, -8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1528863776]
+z_index = -10
+texture_repeat = 2
+texture = ExtResource("2_sj3sy")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 544, 334)
+
+[node name="StartFlag" type="Sprite2D" parent="." unique_id=214238278]
+z_index = -1
+position = Vector2(32, 176)
+texture = ExtResource("3_dwsm3")
+
+[node name="Player" parent="." unique_id=733001990 instance=ExtResource("4_o34ee")]
+position = Vector2(40, 208)
+
+[node name="Pit" type="Area2D" parent="." unique_id=225544408]
+position = Vector2(240, 300)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("5_8orna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit" unique_id=1441109040]
+shape = SubResource("RectangleShape2D_k6qus")
+
+[node name="Door" parent="." unique_id=1923272855 instance=ExtResource("6_fi3es")]
+position = Vector2(440, 184)
+
+[node name="HUD" parent="." unique_id=1941169439 instance=ExtResource("7_8a4nh")]
+
+[node name="PlatformA" type="Path2D" parent="." unique_id=932980238]
+curve = SubResource("Curve2D_x8vkr")
+
+[node name="Track" type="Node2D" parent="PlatformA" unique_id=823882209]
+z_index = -2
+script = ExtResource("9_ixsuu")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PlatformA" unique_id=93000456]
+position = Vector2(104, 184)
+script = ExtResource("10_q15dk")
+speed = 50.0
+
+[node name="MovingPlatform" parent="PlatformA/PathFollow2D" unique_id=1966361346 instance=ExtResource("11_phu7o")]
+
+[node name="PlatformB" type="Path2D" parent="." unique_id=624210855]
+curve = SubResource("Curve2D_ixsuu")
+
+[node name="Track" type="Node2D" parent="PlatformB" unique_id=1023837682]
+z_index = -2
+script = ExtResource("9_ixsuu")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PlatformB" unique_id=2121347542]
+position = Vector2(264, 168)
+script = ExtResource("10_q15dk")
+speed = 50.0
+start_offset = 0.5
+
+[node name="MovingPlatform" parent="PlatformB/PathFollow2D" unique_id=162457775 instance=ExtResource("11_phu7o")]
